@@ -18,7 +18,7 @@ You will see the Rust code that powers the Prisma query engine throw an error. I
 
 This is because when the SQL query is first made, the query and parameter types are passed down to tokio_postgres and tokio_postgres returns the types that the prepared statement parameter substitution should use (in this case, it thinks parameter 1 should be of type `UUID`, when `undefined` is passed via the JS client).
 
-In `postgres/conversion.rs` in the `prisma/quaint` library, this parameter type is cached, so when the next request (with type `string[]` for the parameter is passed from JS), then the following error is thrown:
+In `src/connector/postgres.rs:633` in the `prisma/quaint` library, this parameter type is cached, so when the next request (with type `string[]` for the parameter is passed from JS), then the following error is thrown:
 ```
 Couldn't serialize value `Some([Text(Some("..."))])` into a `uuid`. Value is a list but `uuid` is not.'
 ```
