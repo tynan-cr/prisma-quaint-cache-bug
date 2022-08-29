@@ -27,7 +27,6 @@ If you switch lines 14 and 15 in `main.ts` then the cache is hydrated with type 
 
 This behavior leads to bizarre nondeterministic runtime failures in Quaint if the same query text is used with different parameter types in response to non-deterministic input (such as responding to network queries)
 
-This behavior leads to bizarre nondeterministic runtime failures in Quaint if the same query text is used with different parameter types in response to non-deterministic input (such as responding to network queries)
 
 
 
